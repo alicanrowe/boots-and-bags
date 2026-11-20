@@ -17,6 +17,8 @@ CLO can be driven fully from its own Python editor, with no third-party plugin a
 
 ## Getting files into CLO with no prompts
 - Best: carry the mesh inside the script. Decimate the OBJ (about 20k faces), zlib + base64 it, paste it as a string, and have the script write it to `utility_api.GetCLOTemporaryFolderPath()` before `ImportOBJ`. CLO's own temp folder never triggers a macOS privacy prompt, and no file picker or folder grant is needed.
+- Use `ApiTypes.ImportExportOption()` for the options object (`import ApiTypes`); `import_api` does not hold it. Fields include `scale`, `bSingleObject`, translation values. CLO's temp folder is `~/Library/Application Support/CLO Virtual Fashion/<app>/<build>/` and writes there work with no prompt (tested Nov 2026).
+- Limit: the data has to be typed by the model, and one wrong base64 character breaks the whole file. Fine for a small test part (under about 10 KB), not for full boots. For real meshes, have the person connect a non-protected folder (one under their home, not Desktop, Documents or Downloads) to the session themselves with Add folder in the Claude app; then copy files there and point `ImportOBJ` at it. Folder-access requests from Claude can be refused by the safety layer, so ask the person to add it.
 - Split anything over about 200 KB of base64 across several Run presses, each appending to the same temp file.
 - Otherwise, the person grants a one-time permission that ends the prompts for good: either click Allow the first time CLO asks for Downloads, or turn on CLO under System Settings > Privacy & Security > Full Disk Access. Only the person can do this. Never try to change privacy settings yourself.
 
@@ -30,6 +32,15 @@ CLO can be driven fully from its own Python editor, with no third-party plugin a
 - `import_api.ImportAvatar(path)` for an avatar file; `import_api.ImportDXF(path, option)` for flat patterns.
 - `export_api.ExportThumbnail3D(path)` and `export_api.ExportSnapshot3D(...)` save the 3D view to an image.
 - Our OBJs are millimetres with Z up. CLO is Y up, so convert axes on import (Y takes our Z).
+
+## Tested 20 Nov 2026 (CLO 2026.1, macOS)
+- Working end to end: a connected folder under the person's home (not Desktop, Documents or Downloads), files copied in by Claude, then `import_api.ImportOBJ(path, ApiTypes.ImportExportOption())` from the Python Editor. No dialog, no prompt, returns True.
+- Each `ImportOBJ` replaces the scene's object. Load one boot at a time and screenshot between loads.
+- Write meshes already Y up, in mm, and leave `scale = 1.0`.
+- The editor's text and console often do not repaint after a scripted replace. The code is still there; reopen the editor (Edit > Python Script) to see the console.
+- A Run press can report `cannotComplete` while CLO is busy. Wait, then check before pressing again.
+- Leftover Open File or Import OBJ windows from a manual try block scripts. A relaunch of CLO clears them.
+- Find the editor and close buttons by element index in the window's accessibility list, not by pixel position.
 
 ## What CLO is for in this skill
 Fit and collision of a boot on the avatar can be checked in the cloud kit. CLO earns its place once there are flat patterns: import the DXF, sew, drape the leather on the last or avatar, and read the strain map.
