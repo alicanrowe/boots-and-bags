@@ -31,3 +31,13 @@ Changed since last round: ...
 - Drop zero-area sliver pieces after meshing; smoothing them throws spikes beyond the toe.
 - Hardware has to read at sheet size. If a part is under about 3 mm across and hugs the leather, nobody sees it: make it one structural part (a guard, a cage) rather than thin strokes.
 - Render the top view without the floor shadow, and keep black leather black (exposure down, roughness about 0.5), or it reads as grey plastic.
+
+## Round 2 lessons (client: round 1 "all suck and feel unrealised")
+- A boot model reads as a blob until it has what every made boot has: lapped panels with a real edge step, stitch rows 1.5-2.5 mm in from every panel edge (3-4 mm pitch), a welt with stitching, a sole/welt split line, stacked heel lifts with a darker top lift, and a finished topline (binding or turned edge) with a pull aid or closure. Build these into the kit, never leave them for "later".
+- Benchmark every design before showing it: put the side view next to a photo of a classic boot of the same type and score proportions (toe extension 14-35 mm, toe height 15 mm behind the tip, toe spring 9-15 mm, heel height, shaft height for the type, ankle ease, welt 2.5-6 mm, at least 3 panels, stitch rows). The scorecard lives with the collection (round2/bench/SCORECARD.md).
+- Interpolate last tables with a smooth monotone curve, and fair the final profile (Gaussian along the length, re-clamped to the foot envelope). Piecewise-linear tables and hard max() envelopes show up as creases across the vamp.
+- Short boots look wrong when the shaft hugs the leg: the instep must ramp into a shaft that stands slightly off the front of the ankle (blend radius ~26 mm, front-back aspect ~1.2).
+- Pull-on tall boots (engineer, western) need an ankle girth that clears the heel-instep diagonal (~340 mm for a size 11), so the shaft stands off the ankle by 80-100 mm. That is correct, not a fault.
+- Straps defined as infinite bands must be clipped to the region a real strap occupies (below the topline, in front of the heel or around the ankle only), or they show as flaps and diagonal stripes.
+- Stitch rows must split where the surface projection misses, or a dash bridges the gap as a long needle.
+- Each design carries a buyable bill of materials (upper leather and thickness, lining, counter, toe puff, insole, welt, sole, heel, thread, hardware cast or bought, construction). Leather is chosen per design.
