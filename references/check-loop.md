@@ -191,3 +191,15 @@ Changed since last round: ...
 - Aim roots at a point pushed 30 mm out from the base's bottom loop and lifted 9 mm, then project. A target on the loop is under the lasted edge and the root slides under the boot into the welt. Pick the bottom loop by length: the base has small sliver loops under the toe.
 - A full-length medial zip fights a wound motif. Run a spiral zip under one vine (the cord sewn to the lapping edge) and keep that vine on top at every crossing.
 - The pair-gap check counts anything medial below x = 130: keep thorns off the medial side and flatten cords there (about 60 percent) or the boots hit each other.
+
+### Jacket lessons (round 4, STAY review)
+- On a cropped jacket the arms hang below the hem, so the kit's `base_cuts` hem clip slices the forearms flat and
+  the sleeve end reads as a bell. Pass a hem that returns 0 inside a forearm zone (distance to the elbow-hand axis),
+  then cut the cuff yourself on a plane normal to the forearm (elbow to hand), not the straight shoulder-hand axis.
+- The kit forearm is about 57 to 47 mm radius against a 37 to 23 mm body: scale the radius toward the elbow-hand
+  axis (about 56 mm at the elbow to 38 mm at the wrist) for a close leather sleeve; the body check still reads 0.
+- A yoke above boned panels needs its own relief: dome about 2 mm and a fan of short channels from the collar seam,
+  tapered by t = dn/(dn + height above the yoke seam) so they fade before the piping on tall and short yokes alike.
+- Grade equal-angle channels with theta + a(z)*sin(2*theta) (a > 0 at the waist, < 0 over the bust) and cut the
+  panel seams on the same graded angle so they stay in valleys.
+- Smooth the lining shell (laplace 10) before offsetting it; wrinkle noise shows as glints inside open cuffs.
