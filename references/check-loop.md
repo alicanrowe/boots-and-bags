@@ -99,3 +99,23 @@ Changed since last round: ...
   at the narrowest line (four bones, not five, on a 37 mm waist).
 - The kit heel and top lift share a face and overlap about 2 mm3 after smoothing; build them with a 0.2 mm gap.
 - The kit part sheet frames front hardware from inside the boot; add your own close-up cameras for the focal part.
+
+## Round 4 lessons (COAT, kit v4.0)
+- Kit v4.0 `binding` centres the edge tube at the piece's mid-thickness, so on any piece that lies on another layer the
+  tube's lower half cuts into that layer (100+ mm³ of clipping per hem). Seat the tube on the piece's flesh plane
+  instead (centre = edge + normal x (offset + r)), so it stands on the edge as a rolled tape.
+- Bind only the edges that stay exposed. Where a later panel laps over an earlier one, end the lower panel's hem binding
+  short of the lap, and stop any binding where a strap or belt will cross it; the stack map doesn't include bindings,
+  so a later piece lies straight through them.
+- A small strap laid with off='auto' across a lap step ripples, because it follows every bump of the stack. Lay it on a
+  faired stack (dilate about 7 mm, average about 6 mm, never below the true surface) so it bridges the step like
+  leather does.
+- Cast parts on a shaft: a sheath or keeper built in a flat tangent frame lifts off the curved leg by s²/2R (about 20 mm
+  over 46 mm). Measure height with the last's distance field, or sweep it along points projected onto the surface.
+  Sweeping an oval section along projected points, with the underside riding a max-filtered and smoothed stack, gives
+  a watertight one-body casting that never clips.
+- Smooth-blended SDF castings leak when a scale term collapses (min(W, h) near zero lets a far region go negative);
+  check `is_watertight` and the boundary edges against the box before trusting the mesh.
+- A strap passing under a keeper bar reads as a cross on the boot. Keep the strap's line: a cast sheath that takes the
+  strap point, in line with it, reads as hardware and avoids the cross.
+- Thick padded panels on a tall shaft eat the pair gap at the topline; drop ease or flare to keep it at 10 mm.
