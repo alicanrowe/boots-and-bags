@@ -71,3 +71,31 @@ Changed since last round: ...
 - Free-hanging leather (tails, skirts, flaps) more than about 70 mm off the body reads as floppy. Make it structured or cut it. The kit's standoff check flags it.
 - Wire-thin metal (under 2.5 mm through) reads as flimsy at full-garment scale, whether it's a halo ring, buckles or hook arms. The kit's thin_metal check flags it. Hardware is cast and chunky, or it's left off.
 - One add-on motif on a plain jacket (a coil on the shoulder, horn tips) reads as a gimmick. The motif has to be the construction itself (lames, strap stacks, a structural cage), carried across the whole garment at one level of detail.
+
+## Round 4 lessons (HORN: a cast heel that climbs the boot)
+- A cast part that is the heel and also climbs the upper can't live in `st.heel` (the heel grid stops at the seat). Give
+  the style an empty heel field, build sole and welt with `parts4.sole_parts` yourself, and cast the whole part with
+  `B.cast`. Give any thin cast (a top lift) a grid that reaches below z = 0, or its mesh stays open and the clip check skips it.
+- Cast hardware that lies on leather: build the leather first, then cut the casting with a keep-out of the last field minus
+  `B.stack` (plus 0.4 mm air) and the sole block offset by the welt. It seats exactly on the moulded leather and clips 0.
+- Ridges on a thick swept form: a union of spheres can't carve them (big neighbours fill every groove). Use a true tube
+  field (distance to the nearest axis sample minus a radius that carries the ridges).
+- Even rings round a tube read as a hose or knurling. Horn growth reads right as nested cones: each segment flares toward
+  the tip and steps back in at the next ring, pitch graded about 15 mm at the root to 4 mm at the tip, step height tapering.
+- A form that wraps both sides of the heel crowds the pair gap on the medial side. Flatten its section against the boot
+  (oval, depth about radius / 1.5) instead of shrinking it.
+
+## Round 4 lessons (STAY, cast busk on a corset shaft)
+- A cast bar laid along the leather must not follow `stack_at` point by point: the stack is noisy along a path and
+  the bar comes out with zebra-striped reflections (it reads as a zip or a ladder). Take a running max of the stack
+  along the path (about 40 samples), smooth it, re-max with a short window and add 0.6 mm clearance.
+- Project hardware paths with the lane held fixed (zero the y part of the gradient). Starting points far off the
+  surface land on the wrong face: a spoon tip started 60 mm above the instep landed on the shaft front.
+- Build hardware from swept sections with their own height and width per point (superellipse) and union the bits
+  with manifold3d; SDF nearest-point tricks came out ragged where two bars lap.
+- Relief laid over earlier relief telegraphs through as lumps: mask a lower panel's bones out under the next
+  panel's lap.
+- Bones spaced by a fraction of the panel width merge at a pinched waist: keep at least 7 mm between bone centres
+  at the narrowest line (four bones, not five, on a 37 mm waist).
+- The kit heel and top lift share a face and overlap about 2 mm3 after smoothing; build them with a 0.2 mm gap.
+- The kit part sheet frames front hardware from inside the boot; add your own close-up cameras for the focal part.
