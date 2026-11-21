@@ -57,3 +57,17 @@ Changed since last round: ...
 - Zip pulls drawn at the topline stick out as hooks; leave them tucked in the seam.
 - "Remote" helper agents in this setup ran on the same 4-core machine and the same /tmp folder, so they don't add CPUs and parallel mesh builds can run out of memory. Check `nproc` and the hostname before splitting work, give each job its own WORK folder, and run at most 2 to 3 builds at once.
 - Page crops: fade only the pale floor shadow toward the frame edge, never the boot, and leave about 9% padding so tall boots aren't clipped.
+
+## Jacket lessons (round 3, HARNESS)
+- The jacket body field is a narrow-band distance (about 1 cm). A flat negative torso_adj larger than that leaves holes, so to loosen a waist, union the torso with a shape (a rounded-box column for a straight drop) using smin, with the shape faded out under the arms so it doesn't fuse to the sleeves.
+- Strap ends round a ring or bar: build the end as a real fold, with the strap's top face wrapping the bar (inner radius = wire radius + 1.5 mm), and the return flap easing down onto the strap and riveted. Taper the strap to a tab (about half width) so a curved ring wire doesn't cut its corners, and run the last 15 to 20 mm radially into the ring. Make straps leather on both faces (no lining face), or every fold shows as a black tab on coloured leather.
+- Buckle stacks: the tongue runs under the roller, rises through the frame, clears the fold of the buckle-side strap by at least 1.5 mm, and its tail lies on that strap. The prong rides the tongue's real height profile. Stop decorative top layers before the buckle.
+- Paths on the body: cast rays from inside the body outward so the arms never catch them. A strap under tension bridges hollows: blend it onto the ring plane near a ring, and dilate the radius round a sleeve (taking the largest radius across the band's width) for cuff straps.
+- On a bent arm, any seam or band built on the straight shoulder-to-hand axis spirals across the forearm and comes out ragged. Use a shoulder-elbow-hand frame blended at the elbow for the underarm seam, and the elbow-to-hand axis for cuff straps. Smooth the armhole field difference over the mesh (Laplacian, about 30 passes) before cutting, or the armhole seam follows the voxel steps.
+- A tassel of beads and thongs on a centre-front zip clutters the zip at full-garment view and tips toward costume. A small cast ring pull in the garment's own motif reads better.
+
+## Jacket lessons (round 4 prep, after the client rejected round 3)
+- A jacket shell straight from the body field reads as one smooth moulded blob, so every panel looks flat. Pillow each cut panel up from its seams (about 5 mm over 40 mm), so the seams sit in valleys and each panel catches light on its own. Quilted channels (about 3 mm over a 24 mm pitch) on the sleeves or the waist read as made and padded, not as wrinkles.
+- Free-hanging leather (tails, skirts, flaps) more than about 70 mm off the body reads as floppy. Make it structured or cut it. The kit's standoff check flags it.
+- Wire-thin metal (under 2.5 mm through) reads as flimsy at full-garment scale, whether it's a halo ring, buckles or hook arms. The kit's thin_metal check flags it. Hardware is cast and chunky, or it's left off.
+- One add-on motif on a plain jacket (a coil on the shoulder, horn tips) reads as a gimmick. The motif has to be the construction itself (lames, strap stacks, a structural cage), carried across the whole garment at one level of detail.
