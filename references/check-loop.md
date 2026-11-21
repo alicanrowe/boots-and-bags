@@ -140,3 +140,18 @@ Changed since last round: ...
   0.5 to 0.9 mm³. A 0.3 mm seam gap at the top-lift line in the heel SDF fixes it and is a real seam anyway.
 - Size a topline binding to the stack it wraps (radius = stack/2 + 0.9, max-filtered and smoothed along the loop, capped
   near 3.7 mm), or it sinks into thick layers and swells into a knob where a padded spine meets the topline.
+
+## Round 4 lessons (GAUNTLET, kit v4.0)
+- Overlapping stiff lames laid with `piece(off='auto')` follow every step under them and crumple into soft, rolled cuffs ("floppy"). Lay each lame as a rigid plate instead: its flesh side is a straight incline, highest at its free edge (resting on the full-thickness part of the lame it laps) and falling evenly to its own tucked edge, with the real stack used only as a floor and faired. Never let a plate dip behind the lame it laps: that valley reads as corrugation.
+- Skive every lame to about 0.6 mm where it tucks under its neighbour (10 mm lap), and keep it 2.6 to 3.5 mm with a rolled bead on the visible edge. Fewer, wider plates (about 30 mm) read as armour; six narrow rings read as a tyre.
+- A large plain heel cup is a flat field. Fanning the heel lames round the ankle pivot (rays from the rondel) makes the counter part of the armour and gives the rondel a structural job.
+- Where several lames converge (an ankle pivot), stop them short of the point (a 10 mm hole) and cover the hub with the cast part; otherwise narrow lames stack up and clip.
+- Cast parts that sit on leather take their underside from the leather stack (KD lookup on the base stack), so they seat on stepped leather without floating or clipping. Cast a metal toe cap first and write it into the stack so the first leather lame laps over it.
+- Medial hardware at the ankle costs pair clearance (pair gap needs 10 mm or more): keep the medial twin lower.
+- kit v4.0 heel_fine: the heel and the top lift overlap by about 4 mm³ after smoothing and fail the clip check; clamp them apart (top lift below toplift_h - 0.2, heel above + 0.1).
+
+## Round 4 lessons (SCALE, shingled scale courses on kit v4)
+- `B.base`'s bottom boundary is not the feather line: patches of the last bottom survive the cut, so its lowest boundary loop can be a small island under the foot. Use the footprint outline (`B.fp.offset(0)`) lifted to `zb(x)` as the feather line.
+- A distance-from-welt field has saddles on the vamp (the ball is wide, the waist is narrow and high), which split a course ring into islands. Weight width less than height (y x 0.4) and handle split rings; better, use the fraction f = d_welt / (d_welt + d_topline) so low courses follow the welt and high ones follow the topline, with no plain band under the binding.
+- Lapped pieces laid with `off='auto'` copy every step of the edges underneath (ragged, crumpled tongues). Lay on a dilated, well-smoothed bed clamped just above the real stack, and relax each cut outline along itself before building the solid.
+- Pointed tongues on a wedge's lift edges read as a row of teeth from the front; round them.
