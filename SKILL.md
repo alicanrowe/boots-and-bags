@@ -43,5 +43,15 @@ Same loop, with the form in place of the last: a body form (box, cylinder, pillo
 ## Getting it made
 `construction.md` lists the routes: by hand, with a bootmaker or small workshop, or with a sampling factory. Contacting a maker or ordering anything waits for the client's go-ahead.
 
+## Excuses that don't count
+Each of these is a shortcut that ends in a broken result. If you catch yourself thinking the left column, do the right column.
+
+| The excuse | What to do instead |
+|---|---|
+| "The panels look right in the 3D view" | Flatten them and check every seam pair is the same length before calling the pattern done. |
+| "It's only a little clipping at the buckle" | Run the clipping check; any part passing through another is a fail, however small. |
+| "This render is close enough to the reference maker" | Put it side by side with the named reference, list what's off, fix, render again. |
+| "While I'm in here I'll also tidy/refactor this other bit" | Change only what the task needs. Smallest diff that works; no new options, helpers or files nobody asked for. Note other ideas for later instead. |
+
 ## Keep this skill improving
 When the client flags something, or a check misses a problem, write the rule into the matching reference file in the same session (taste remarks go in the `design-taste` skill's `critique-log.md` with the client's words, then into its principles or rubric, published with `_publish/sync.sh design-taste`; loved details also in `client-picks.md`). Then publish the skill.
