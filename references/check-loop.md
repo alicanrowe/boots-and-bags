@@ -41,3 +41,10 @@ Changed since last round: ...
 - Straps defined as infinite bands must be clipped to the region a real strap occupies (below the topline, in front of the heel or around the ankle only), or they show as flaps and diagonal stripes.
 - Stitch rows must split where the surface projection misses, or a dash bridges the gap as a long needle.
 - Each design carries a buyable bill of materials (upper leather and thickness, lining, counter, toe puff, insole, welt, sole, heel, thread, hardware cast or bought, construction). Leather is chosen per design.
+
+## Jacket lessons (round 3, THORN)
+- Space repeated edge features (crown points, scallops, teeth) by arc length along the edge, not by angle round the neck: a neckline is an oval, and equal angles bunch the back points to half the width of the front ones.
+- Grow a stand collar with the radial direction as the edge normal so it stands up; projecting "up" onto a near-flat shoulder normal lays it outward like a brim.
+- A seam cut along exactly x = 0 on a symmetric mesh lands on vertices and comes out wavy; offset the isoline by under a millimetre.
+- Stitch-only motifs (vines, ticks) vanish at full-garment scale on black leather. Couch a 3 mm tonal leather cord and stitch over it, so the line shows as relief; where two cords cross, lift the top one into a bridge so they weave instead of passing through each other.
+- Many seams compete with a surface motif. When the motif carries the line work, drop the princess seams and keep a centre back seam as its spine.

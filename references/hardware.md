@@ -8,6 +8,7 @@ Cast or printed metal parts follow the casting floors in the sculpted-metal-cast
 - Speed hooks and rivets: post plus a back cap; hole in the leather 0.2 to 0.3 mm over the post.
 - Buckles: inside width = strap width plus 1 to 2 mm. Tongue reaches the far bar. Strap holes on a 10 to 15 mm pitch.
 - Heel plates and toe guards: screwed or nailed into the sole, so they need countersunk holes and enough metal round each (2 mm minimum).
+- Caps over cut leather points (collar tips, strap ends): shape the cap to the point, don't use a round or elliptical cone. Measure the leather's real section at each depth by ray-casting the point along its normal (a fitted surface or interpolation misses by 2 to 3 mm where the point curls), pad 1.7 mm each side and 1.6 mm over the leather face, open the mouth with an inner lip that clears the leather, and rivet once through the cap. Then test both leather faces against the cap section; the stock metal-in-leather check alone can't see leather poking out of a sheath.
 - D-rings and strap anchors on bags: wire at least 3 mm for anything carrying weight, closed (cast as a ring, not an open hook).
 
 ## Wear
