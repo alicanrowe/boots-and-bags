@@ -119,3 +119,24 @@ Changed since last round: ...
 - A strap passing under a keeper bar reads as a cross on the boot. Keep the strap's line: a cast sheath that takes the
   strap point, in line with it, reads as hardware and avoids the cross.
 - Thick padded panels on a tall shaft eat the pair gap at the topline; drop ease or flare to keep it at 10 mm.
+
+## Round 4 lessons (SERAPH, layered feather tiers and a clasp over the crossing)
+- Tiers that tuck under the next tier telegraph as a horizontal ridge through it, and tiers that run all the way to
+  the topline stack too thick at the front where two wings overlap. Lap each tier about 20 mm under the next one and
+  skive the lap to about 0.2 mm over its last 20 mm (thickness function of height), and trim the under wing about
+  18 mm inside the over wing's edge. The ridge disappears and the crossing stays about 8 mm deep instead of 20.
+- Moulded relief on a lower tier telegraphs too: fade it out over the last 10 mm before the next tier's notches.
+- Feather lobes: rounded tips (sin-based lobes) read as drips, needle lancets as flames. A lancet with full convex
+  sides, (1 - |x|)^0.6, and the point rounded off over about 14 % of the width reads as feathers. Grade the pitch and
+  depth from root to tip so the row is never a comb, and give each feather a low dome (about 2 mm) between the creases.
+- A cast plate over a lumpy stack of laps can't win either way: seated on the highest layer it floats (a gap you see in
+  the side view), following the raw stack it comes out melted. Map the stack in the casting's own plane, seat the
+  underside on the raw (max-filtered) map, and build the top from a heavily smoothed map plus a smoothly blurred lift
+  wherever a lap rides high. The top stays fair and nothing floats.
+- A frame with a bar across its window over two crossing strips reads as a cross in a circle. Close the window (a
+  solid mandorla with a raised keel) or keep the strips' line.
+- Fill a front V between crossing wings with a padded breast panel (about 5 mm), or the clasp bridges a hole.
+- The kit's top lift and heel share a face at toplift_h; deep feather or lift cuts near it can make the clip check read
+  0.5 to 0.9 mm³. A 0.3 mm seam gap at the top-lift line in the heel SDF fixes it and is a real seam anyway.
+- Size a topline binding to the stack it wraps (radius = stack/2 + 0.9, max-filtered and smoothed along the loop, capped
+  near 3.7 mm), or it sinks into thick layers and swells into a knob where a padded spine meets the topline.
