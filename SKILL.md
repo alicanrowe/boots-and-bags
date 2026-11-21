@@ -11,11 +11,12 @@ The rules that come out of real review rounds go in `references/`. Read them bef
 
 ## Before you start
 1. **Do what was asked, no more.** Quote the client's words for the job. "Re-render" or "same layout as X" means new views of the current model, no geometry change. Change only what the words ask for and say in the report which parts changed.
-2. Read `references/construction.md`, `references/patterns.md`, `references/hardware.md`, `references/check-loop.md` and `references/client-picks.md`.
-3. Find the collection's aesthetic brief (one per collection, kept with the project, not in this skill). If there is none, write one from `references/brief-template.md` with the client's words and the named reference makers. Never copy a reference: borrow its hand, not its products.
-4. Reference images go in the collection's `refs/` folder with a `RESEARCH.md` that describes each maker's hand in specifics (silhouette, panel lines, edge finish, stitch, hardware, leather, colour). Write it from the images, not from memory. Instagram blocks plain cloud fetches; Composio's Firecrawl scrape returns a post's caption and maker, and its AnyAPI Instagram post and user-posts tools return every carousel image URL (download them inside the Composio workbench, then bring them over as one zip). Make a contact sheet per maker and look at it before writing.
-5. Use the brand theme (fonts, colours, logo) on every sheet, pattern and caption.
-6. Blender 5.0+ (`pip install bpy` for headless work), plus `numpy trimesh shapely svgwrite pillow`. The FTW Flattening Toolset add-on does the panel flattening. Blender MCP is optional for live sessions with the client.
+2. Read the shared `design-taste` skill (`../design-taste/` next to this skill): `principles.md`, `banned-moves.md` and the leather sections of `domains.md`. Every boot, jacket and bag is scored with its `rubric.md` (gates plus 12 criteria, with a close-up of every part) before anyone sees it; the bar is no zeros and 20 of 24.
+3. Read `references/construction.md`, `references/patterns.md`, `references/hardware.md`, `references/check-loop.md` and `references/client-picks.md`.
+4. Find the collection's aesthetic brief (one per collection, kept with the project, not in this skill). If there is none, write one from `references/brief-template.md` with the client's words and the named reference makers. Never copy a reference: borrow its hand, not its products.
+5. Reference images go in the collection's `refs/` folder with a `RESEARCH.md` that describes each maker's hand in specifics (silhouette, panel lines, edge finish, stitch, hardware, leather, colour). Write it from the images, not from memory. Instagram blocks plain cloud fetches; Composio's Firecrawl scrape returns a post's caption and maker, and its AnyAPI Instagram post and user-posts tools return every carousel image URL (download them inside the Composio workbench, then bring them over as one zip). Make a contact sheet per maker and look at it before writing.
+6. Use the brand theme (fonts, colours, logo) on every sheet, pattern and caption.
+7. Blender 5.0+ (`pip install bpy` for headless work), plus `numpy trimesh shapely svgwrite pillow`. The FTW Flattening Toolset add-on does the panel flattening. Blender MCP is optional for live sessions with the client.
 
 ## Workflow: boots
 1. **Brief.** Boot type (engineer, chelsea, lace-up, western, jodhpur, side-zip), shaft height, size and width, construction (see `construction.md`), leads and weights (for example 50 / 30 / 20), and which hardware is cast versus bought.
@@ -43,4 +44,4 @@ Same loop, with the form in place of the last: a body form (box, cylinder, pillo
 `construction.md` lists the routes: by hand, with a bootmaker or small workshop, or with a sampling factory. Contacting a maker or ordering anything waits for the client's go-ahead.
 
 ## Keep this skill improving
-When the client flags something, or a check misses a problem, write the rule into the matching reference file in the same session (taste remarks go in `client-picks.md` with the client's words). Then publish the skill.
+When the client flags something, or a check misses a problem, write the rule into the matching reference file in the same session (taste remarks go in the `design-taste` skill's `critique-log.md` with the client's words, then into its principles or rubric, published with `_publish/sync.sh design-taste`; loved details also in `client-picks.md`). Then publish the skill.
