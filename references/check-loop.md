@@ -203,3 +203,16 @@ Changed since last round: ...
 - Grade equal-angle channels with theta + a(z)*sin(2*theta) (a > 0 at the waist, < 0 over the bust) and cut the
   panel seams on the same graded angle so they stay in valleys.
 - Smooth the lining shell (laplace 10) before offsetting it; wrinkle noise shows as glints inside open cuffs.
+
+## Round 4 review lessons (21 Nov 2026, boots thread across nine boots)
+- Every thread's first delivery left the vamp and plain shaft as blank calf; four of nine had to go back for it. Before
+  scoring, look at the vamp and the biggest panel first: each needs a bounded, moulded rest field (rays, keel, yoke,
+  channels) in the boot's own motif.
+- Self-scores ran 1 to 3 points high, always on Surface, Fidelity and Mood. The reviewer re-scores from the views;
+  a thread's PASS stands only if the reviewer agrees.
+- Many small lapped lobes (feathers, scales) drape and crinkle with piece(off='auto') and read torn or floppy. Use fewer,
+  larger stiff plates on an analytic bed (GAUNTLET plate(), SCALE lay()), with the tips seated on the course below.
+- Hardware under about 40 mm reads as trim on a tall boot; focal hardware wants 60 mm or more.
+- The kit's heel and top lift share a face and fail clipping by 2 to 4 mm3: leave a 0.2 to 0.3 mm seam gap.
+- The kit's red renders scarlet or tomato, not crimson: darken and desaturate it before the next round.
+- The auto part camera lands inside the boot for parts that wrap the front: add close cameras (STAY render_close.py).
