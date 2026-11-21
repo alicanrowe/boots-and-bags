@@ -48,3 +48,12 @@ Changed since last round: ...
 - A seam cut along exactly x = 0 on a symmetric mesh lands on vertices and comes out wavy; offset the isoline by under a millimetre.
 - Stitch-only motifs (vines, ticks) vanish at full-garment scale on black leather. Couch a 3 mm tonal leather cord and stitch over it, so the line shows as relief; where two cords cross, lift the top one into a bridge so they weave instead of passing through each other.
 - Many seams compete with a surface motif. When the motif carries the line work, drop the princess seams and keep a centre back seam as its spine.
+
+## Round 3 lessons (client: round 2 "super ugly and unoriginal")
+- Benchmarking against classic boot types makes classic-looking boots. Benchmark for fit and makeability only; take the look from the brief (here: armour, coats, crowns, corsets, feathers, horns) and give every design one silhouette idea you can see in the side view: a shaped topline, a sculpted or structural heel, layered panels, a flare.
+- Ornament has to read at page size or it reads as noise: a small floating ring behind the heel looked like a stray pin; making the heel itself the hoop worked. Raised ridges on a toe guard read as broken chrome; a plain guard reads as made.
+- Leather that renders glossy grey looks like rubber. Matte calf (roughness about 0.55, light coat, fine grain bump) and a darker print curve for black views make it read as leather. Keep the curve off highlights so steel and silver stay bright.
+- A pull-on shaft wider than the build grid is cut flat at the grid edge and sends the topline binding out in a spike. Widen the grid (x0) for wide shafts and filter topline rays that miss.
+- Zip pulls drawn at the topline stick out as hooks; leave them tucked in the seam.
+- "Remote" helper agents in this setup ran on the same 4-core machine and the same /tmp folder, so they don't add CPUs and parallel mesh builds can run out of memory. Check `nproc` and the hostname before splitting work, give each job its own WORK folder, and run at most 2 to 3 builds at once.
+- Page crops: fade only the pale floor shadow toward the frame edge, never the boot, and leave about 9% padding so tall boots aren't clipped.
