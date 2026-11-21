@@ -155,3 +155,29 @@ Changed since last round: ...
 - A distance-from-welt field has saddles on the vamp (the ball is wide, the waist is narrow and high), which split a course ring into islands. Weight width less than height (y x 0.4) and handle split rings; better, use the fraction f = d_welt / (d_welt + d_topline) so low courses follow the welt and high ones follow the topline, with no plain band under the binding.
 - Lapped pieces laid with `off='auto'` copy every step of the edges underneath (ragged, crumpled tongues). Lay on a dilated, well-smoothed bed clamped just above the real stack, and relax each cut outline along itself before building the solid.
 - Pointed tongues on a wedge's lift edges read as a row of teeth from the front; round them.
+
+## Jacket lessons (round 4, STAY: boned channels and a cast busk)
+- Relaxing a ribbed mesh folds triangles in the valleys: pinholes and dark dashes along every channel in the final. Apply
+  `relief.channels` to each cut piece after `geo.relax` (before the dome), not to the shell, and use a smooth valley
+  profile (sharp 2, a sin² rib); sharp under 1 leaves a kink that renders as broken dark lines.
+- The 4 mm kit shell is too coarse for 20 mm channels; midpoint-subdivide it once before cutting.
+- Put body seams in channel valleys (integer channels per panel) and stitch the other valleys with paired rows.
+- The kit sleeve angle (`arm_coords` phi) uses a straight shoulder-to-wrist axis, so channels spin into a starburst at
+  the elbow. Use an angle round the bent arm (frames carried from the upper arm to the forearm, blended at the elbow) and
+  cut the underarm seam on that same angle.
+- The kit sleeve ends about 7 cm above the wrist joint (the field's own end), so `base_cuts` cuff and cuff_extra never
+  cut. Find the real cuff loop for bindings and fade relief by distance to it.
+- A neckline detector by radius from the neck axis also matches the back hem; add a height test.
+- Bindings that pass the overlay check: a C-section wrapped round the edge (mouth clears the leather by 0.75 mm and
+  0.7 mm past the edge), path snapped to the real piece boundary (KD lookup, 1.2 mm) and lightly smoothed. Size the
+  radius to the stack (thick/2 + 1.6 mm). Round sharp corners in the cut itself; smoothing a path round a corner pushes
+  the lips into the leather.
+- Hardware laid flat on the front: the check's parity test reports false hits when the +z ray grazes into a
+  forward-leaning panel (waist to bust). Fill the concavity under the busk (a straight-front fill on a smooth x,z grid,
+  outward only, which is what a busk does) and sit the plates 1.3 mm off the leather. Rays placing plates slip through
+  seam gaps onto the far panel: despike rows against a median and nudge stud rays off gaps.
+- Cast plates must wind outward (signed volume > 0) or `thin_metal` measures the wrong way and flags them.
+- Let the busk plates be the front-edge finish (just inside the turned edges, over a placket); separate front-edge
+  bindings fight the plates for the same 5 mm.
+- Part-sheet tiles: the kit camera sits `dist` from the origin, not from the target, and the default shoulder, sleeve
+  and cuff tiles aim at the left arm from the right side. Pass `info['parts']` aimed at the right arm and the real cuff.
