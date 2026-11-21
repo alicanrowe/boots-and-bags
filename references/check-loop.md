@@ -181,3 +181,13 @@ Changed since last round: ...
   bindings fight the plates for the same 5 mm.
 - Part-sheet tiles: the kit camera sits `dist` from the origin, not from the target, and the default shoulder, sleeve
   and cuff tiles aim at the left arm from the right side. Pass `info['parts']` aimed at the right arm and the real cuff.
+
+## Round 4 lessons (BRIAR, couched-cord vines on a knee boot)
+- Couched cord has to be big to read on a tall boot: 8 mm cord on a 440 mm shaft reads as piping. 15 to 17 mm at the root, tapering to about 7 mm at the topline, reads as a vine.
+- Two near-vertical helices read as straps. Wind each vine most of a turn and weave them (alternate over and under along each vine) so crossings show in every view; lift the top cord by about 1.7 cord radii over a 24 mm bump.
+- Make the cord the seam: cut the shaft into panels along the vine centre lines and lap each panel 1.5 mm past the line, so the cord hides both edges. A 4 mm lap shows as a second ridge beside a cord that tapers.
+- Cut panels by removing base-mesh edges that cross each vine (test sides per vine, not against the nearest vine, or crossings leak). n bottom-to-top lines on a shaft give n panels plus one per crossing; one line alone does not split it.
+- A branch or tendril must start buried in its parent's axis with a smaller radius; a branch that starts beside the parent shows as a cut stub (a nub).
+- Aim roots at a point pushed 30 mm out from the base's bottom loop and lifted 9 mm, then project. A target on the loop is under the lasted edge and the root slides under the boot into the welt. Pick the bottom loop by length: the base has small sliver loops under the toe.
+- A full-length medial zip fights a wound motif. Run a spiral zip under one vine (the cord sewn to the lapping edge) and keep that vine on top at every crossing.
+- The pair-gap check counts anything medial below x = 130: keep thorns off the medial side and flatten cords there (about 60 percent) or the boots hit each other.
