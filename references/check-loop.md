@@ -249,3 +249,13 @@ Changed since last round: ...
   with a horizontal ray from the leg centre at a fixed angle.
 - A procedural cell grain (steerhide) reads as crackle in 1:1 crops even with the bump turned down, because the cells
   sit in the colour and roughness too. Check every detail crop at 1:1 before the full set.
+- Projecting points with `B.on` from far outside the last (x = leg centre - 80 mm at the back) starts outside the
+  build grid (x from -30), where the field is flat: projections diverge (meshes kilometres away) and SDF casts that
+  read the field come back empty. Start 50 to 55 mm off the leg centre, clamp x to the grid, and use iters=30.
+- Keep cast SDF boxes tight and voxel 0.12 to 0.15 mm only on small boxes: an 80 x 80 x 50 mm box at 0.12 mm is
+  ~190M samples and the build is killed for memory.
+- A front zip's slider and pull must sit well under the topline (stop the teeth ~15 mm below it); a slider standing
+  past the topline is the first thing a reviewer calls out.
+- Product framing: fit each camera to the boots' projected bounds (move along and across the view line until the
+  pair fills ~80% of a 4:5 frame) instead of fixed distances; see round5/stay/render5_stay.py `_fit`.
+- A hero pair reads better with the second boot turned to show the back (HERO_ROT) when the back carries the design.
