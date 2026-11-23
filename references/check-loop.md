@@ -216,3 +216,22 @@ Changed since last round: ...
 - The kit's heel and top lift share a face and fail clipping by 2 to 4 mm3: leave a 0.2 to 0.3 mm seam gap.
 - The kit's red renders scarlet or tomato, not crimson: darken and desaturate it before the next round.
 - The auto part camera lands inside the boot for parts that wrap the front: add close cameras (STAY render_close.py).
+
+## Round 5 lessons (23 Nov 2026, BRIAR lace-up service boot)
+- Lacing that reads real: each eyelet carries one strand. A diagonal comes up out of an eyelet, crosses the tongue and
+  tucks under the opposite facing's inner edge (it comes up through the next eyelet from beneath). Two strands diving
+  into one eyelet clip each other and look wrong.
+- Model the lace's last 5 mm straight down the eyelet axis and hold those points fixed; let the free part bend above
+  that, or smoothing drags the lace through the eyelet flange.
+- Laces placed by pushing points off the leather, hooks and earlier laces come out wormy. Alternate a strong smooth
+  with a clear pass about six times so the lace stays taut and bends only where it must.
+- A speed hook that curls only outward from the facing is seen end-on from the side view and reads as a stud or
+  spike. Give the curl a component down the shin (a rose prickle hooking toward the stem) so the hook shape reads in
+  the lateral view, and make its base long and broad like a thorn's.
+- Stacked heel lifts: keep the lift groove narrow (0.2 mm half width on a 0.28 mm grid); wider cuts read as separate
+  plates with gaps.
+- Ankle folds as a regular sine band read as corrugation. Use two or three individual folds, dipping toward the back,
+  with uneven amplitude; one main flex break on the vamp plus a lighter one, never a ripple train.
+- The look6 steer grain at boot scale reads as crackle at a 1:1 crop. Scale its cells about 3x finer and its bumps
+  to about a third for boots (BRIAR's render wrapper does this with GRAIN_X and GRAIN_B).
+- Style.flare must be a tuple (z_start, extra_mm); a bare number crashes the kit build.
