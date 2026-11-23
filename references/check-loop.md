@@ -235,3 +235,17 @@ Changed since last round: ...
 - The look6 steer grain at boot scale reads as crackle at a 1:1 crop. Scale its cells about 3x finer and its bumps
   to about a third for boots (BRIAR's render wrapper does this with GRAIN_X and GRAIN_B).
 - Style.flare must be a tuple (z_start, extra_mm); a bare number crashes the kit build.
+
+## Round 5 lessons (HORN: side-zip boot with a moulded lame counter)
+- Taubin-smoothing whole overlay pieces after the build moves the flesh side into the layer below (1 to 7 mm3 of
+  clipping, worst against the welt). Smooth the grain side only, drop any inward move, and leave vertices within 4 mm of
+  the welt alone; then run the clip check again on the smoothed meshes, not just at build time.
+- A fan of lames cut on leg-angle curves meets at the back seam in a hard chevron, because |theta| folds there. It reads
+  as a deliberate growth-ring chevron, but pillowed lames bulge and look lumpy at that seam. Keep each lame's pillow
+  around 0.35 mm, and stop the backstay above the counter (lap it 10 mm under the top lame) so its edges don't show through.
+- Quarter folds telegraph through a vamp lapped over them and break out as black shards along the vamp edge. Mask the
+  lower piece's fold relief wherever the upper piece will lie.
+- A zip line projected from a point 80 mm off the surface drifts about 0.25 rad round the leg. Place zips and hardware
+  with a horizontal ray from the leg centre at a fixed angle.
+- A procedural cell grain (steerhide) reads as crackle in 1:1 crops even with the bump turned down, because the cells
+  sit in the colour and roughness too. Check every detail crop at 1:1 before the full set.
