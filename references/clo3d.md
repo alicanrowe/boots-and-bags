@@ -58,3 +58,6 @@ An old forum answer says the API can't sew. That's out of date. Current pattern_
   `ExportRenderingImageForCustomView`, `ImportZprj`, `ImportPoseW`.
 - Full signature dump: boots-jackets-v2/kit/clo_api_py_signatures.txt in the project files. So the route is:
   draft patterns in the cloud, generate one CLO Python script per garment, run it in CLO's editor on the tower.
+
+## Figure (owner rule, 25 Nov)
+Render on a plain white faceless figure: a male .avt from CLO Assets/Avatar/Mannequin, or MV2.1_Luka with a flat white texture (SetAvatarTexureMap). Never the realistic avatar. build_all.py load_avatar() does this.
