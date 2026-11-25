@@ -33,6 +33,9 @@ Prevent it instead:
 | Some single-panel OBJs still not traced (r2) | unknown: clean UVs, one loop, valid outline | retry the traced import once and log `RETRY`; record the cause here once found |
 | Mottled soles | rigid core z-fights the leather shells | hide the core only when every shell landed, else log `CORE KEPT` |
 | `SetRenderImageVideoProperties` TypeError | it takes an `ApiTypes.RenderImageVideoOptions` object (fields are `m_*`), not the JSON string | build the object |
+| Lime backs and sleeves in viewport turntables (r3, with all faces assigned) | backs and sleeves drafted as seen from the front, so they face inside out | `FlipPatternNormal([...])` on back/arm pieces right after creation |
+| Batch hung 40+ min with no log (r3, 07) | about 260 cut-and-sew cells, cut one by one | cap cells (24 per piece), time-box the loop, and write a line-by-line `live_log.txt` |
+| `ExportStdViewImage` "Please provide filepath with extension" | it needs a full file name, not a folder | pass `views/viewN.png` |
 | Internal line leaves its piece | fold lines drawn end to end across the bounding box | clip marks to the piece; pre-flight probes segment midpoints |
 
 ## Running several CLO instances at once (the tower has the GPU for 2-4)
