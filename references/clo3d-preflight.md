@@ -35,6 +35,13 @@ Prevent it instead:
 | `SetRenderImageVideoProperties` TypeError | it takes an `ApiTypes.RenderImageVideoOptions` object (fields are `m_*`), not the JSON string | build the object |
 | Internal line leaves its piece | fold lines drawn end to end across the bounding box | clip marks to the piece; pre-flight probes segment midpoints |
 
+## Running several CLO instances at once (the tower has the GPU for 2-4)
+- Jobs must be independent: every input is read-only in the shared folder, and every output goes to `out/<job>/`.
+- Claim a job with an atomic `os.mkdir(out/<job>.claim)` and skip it if that fails. Delete the `.claim` folder
+  to re-run a job that crashed.
+- Copy turntable frames from the paths that `ExportTurntableImages` returned, never by globbing the temp folder
+  by time, because another instance's frames land there too. Per-job temp files (textures) go in `out/<job>/`.
+
 ## Before showing anything
 Read the round's logs for `ERR`, `PART LOST`, `DROP`, `MISMATCH`, `SEAM FAIL` and look at every view, including
 the turntables composited on white. A round with any of these is a test round. It is not shown to the owner.
