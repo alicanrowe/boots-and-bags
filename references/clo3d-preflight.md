@@ -30,11 +30,13 @@ Prevent it instead:
 | Black turntables | `ExportTurntableImages` writes RGBA with a transparent background; `colorHex` only affects `ExportRenderingImage` | composite the turntable PNGs onto #FFFFFF after export; for stills use `ExportStdViewImage(view, folder, colorway, w, h, True)` |
 | Pieces on the floor | piece with no seam (under-layers, appliqué cups, a loose tether) | pre-flight: every piece is sewn; the builder deletes unsewn pieces before the sim and logs `DROP unsewn` |
 | Boot panels lost, wrong boots paired | the whole upper in one OBJ: CLO merged or dropped UV islands | one OBJ per panel with UVs starting at 0,0 (`pair_XX_parts/`); log `PART LOST`; pre-flight checks each part's UV boundary |
-| Some single-panel OBJs still not traced (r2) | unknown: clean UVs, one loop, valid outline | retry the traced import once and log `RETRY`; record the cause here once found |
+| Some single-panel OBJs import False / add 0 patterns (r2-r4) | CLO's UV trace rejects an outline with an acute corner (< 45 deg); proven by probe 7 (trimmed 3 mm tips import, originals do not). A few panels fail for another, unknown reason (06 quarter_L__L, any variant) | trim UV tips < 45 deg by 3 mm before shipping; for known failures ship alternates (UV u-mirror + reversed faces, UVs in metres, 3D jitter) and the untrimmed source, tried in turn and logged as `RETRY` |
 | Mottled soles | rigid core z-fights the leather shells | hide the core only when every shell landed, else log `CORE KEPT` |
 | `SetRenderImageVideoProperties` TypeError | it takes an `ApiTypes.RenderImageVideoOptions` object (fields are `m_*`), not the JSON string | build the object |
 | Lime backs and sleeves in viewport turntables (r3, with all faces assigned) | backs and sleeves drafted as seen from the front, so they face inside out | `FlipPatternNormal([...])` on back/arm pieces right after creation |
 | Batch hung 40+ min with no log (r3, 07) | about 260 cut-and-sew cells, cut one by one | cap cells (24 per piece), time-box the loop, and write a line-by-line `live_log.txt` |
+| Cut-and-sew cells (`CutPatternAlongInternalShapes`) return False in 2026.1, and the job then hangs (r4) | the API cut does not work here | show pierced or inlaid cells as a transparent PNG graphic (`ImportAsGraphic` + `AddGraphicStyleToPattern`) drawn from the cut-file cells |
+| Std views and viewport turntables tint some panels lime/olive (r4) | viewport display, not the render | judge and show only render-engine images (`ExportRenderingImage`; turntable via `RenderImageVideoOptions.m_ImageVideo`) |
 | `ExportStdViewImage` "Please provide filepath with extension" | it needs a full file name, not a folder | pass `views/viewN.png` |
 | Internal line leaves its piece | fold lines drawn end to end across the bounding box | clip marks to the piece; pre-flight probes segment midpoints |
 
