@@ -81,3 +81,6 @@ examples/workwear_jacket.py, Ubani-Studio/clo3d-mcp, marcoleder/clo3d-mcp) plus 
 - There is no undo or remove_seam via the API: save a zprj checkpoint before sewing experiments.
 - Simulate in short bursts (50 steps) and render between; leather at 15 mm particle distance is fast.
 - Never show a test render to the owner as a result; only stills that pass the rubric.
+
+## Pre-flight and failure log
+Before any tower batch, run `scripts/clo_preflight.py` and read `references/clo3d-preflight.md` (modal-dialog guard, the r1-r3 failure classes). Every new failure becomes a rule there in the same turn.
