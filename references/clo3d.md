@@ -44,3 +44,17 @@ CLO can be driven fully from its own Python editor, with no third-party plugin a
 
 ## What CLO is for in this skill
 Fit and collision of a boot on the avatar can be checked in the cloud kit. CLO earns its place once there are flat patterns: import the DXF, sew, drape the leather on the last or avatar, and read the strain map.
+
+## The API can build and sew a garment with no clicks (checked 25 Nov 2026, developer.clo3d.com)
+An old forum answer says the API can't sew. That's out of date. Current pattern_api has:
+- `CreatePatternWithPoints([(x, y, type), ...])`: type 0 = corner (straight), 2 = spline, 3 = bezier. Lines run
+  between corner points, in point order, so keep each named seam edge between two type-0 points and record its
+  line index.
+- `AddSeamlinePairGroup(patA, lineA, patB, lineB, dirA, dirB)` sews two lines; `AddSeamlinePairGroupPartial` sews
+  sub-segments by ratio (v11); `AddSeamlineTopstitch(group, start, end, style)` adds topstitch.
+- `SymmetryPatternPiece(idx, bWithSewing)`, `SetArrangement(idx, arrIdx)` with `GetArrangementList()`,
+  `SetArrangementPosition`, `Simulate(steps)`, `SetSimulationQuality(q, mode)` (3 = FAST GPU),
+  `AddFabric(path)` + `AssignFabricToPattern`, `ChangeFabricWithJson`, `ExportRenderingImage(path, False, 0)`,
+  `ExportRenderingImageForCustomView`, `ImportZprj`, `ImportPoseW`.
+- Full signature dump: boots-jackets-v2/kit/clo_api_py_signatures.txt in the project files. So the route is:
+  draft patterns in the cloud, generate one CLO Python script per garment, run it in CLO's editor on the tower.
