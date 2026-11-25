@@ -113,6 +113,31 @@ def check_part(path):
         bad(nm, zero, "zero-area UV triangles")
     if loops != 1 and "wall" not in nm:
         bad(nm, loops, "boundary loops (expect 1)")
+    for s0 in list(adj)[:1]:
+        loop = [s0]; prev = None; cur = s0
+        while len(loop) < len(adj) + 1:
+            nx = [x for x in adj[cur] if x != prev]
+            if not nx:
+                break
+            prev, cur = cur, nx[0]
+            if cur == s0:
+                break
+            loop.append(cur)
+        if len(loop) > 2:
+            # vertices are 3D indices; the UV of a boundary vertex is taken from the first face corner that uses it
+            uv = {}
+            for f in F:
+                for a, t in f:
+                    uv.setdefault(a, T[t])
+            P = [uv[i] for i in loop]
+            for k in range(len(P)):
+                a, b, c = P[k - 1], P[k], P[(k + 1) % len(P)]
+                u = (a[0] - b[0], a[1] - b[1]); v = (c[0] - b[0], c[1] - b[1])
+                nu, nv = math.hypot(*u), math.hypot(*v)
+                if nu > 1e-9 and nv > 1e-9:
+                    ang = math.degrees(math.acos(max(-1, min(1, (u[0] * v[0] + u[1] * v[1]) / (nu * nv)))))
+                    if ang < 45 and "wall" not in nm:
+                        bad(nm, "acute UV corner %.0f deg: CLO's trace refuses it (trim tips 3 mm)" % ang); break
     if T and (min(u for u, _ in T) < -0.01 or min(v for _, v in T) < -0.01):
         bad(nm, "UVs do not start at 0,0")
 
@@ -122,6 +147,8 @@ if __name__ == "__main__":
         check_job(p)
     if len(sys.argv) > 2:
         for p in sorted(glob.glob(os.path.join(sys.argv[2], "pair_*_parts", "*.obj"))):
+            if os.path.basename(p).startswith("src_") or "__alt" in p:
+                continue
             check_part(p)
     print("\n".join(FAIL) if FAIL else "preflight OK")
     print(len(FAIL), "problems")
