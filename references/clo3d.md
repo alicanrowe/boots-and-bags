@@ -61,3 +61,23 @@ An old forum answer says the API can't sew. That's out of date. Current pattern_
 
 ## Figure (owner rule, 25 Nov)
 Render on a plain white faceless figure: a male .avt from CLO Assets/Avatar/Mannequin, or MV2.1_Luka with a flat white texture (SetAvatarTexureMap). Never the realistic avatar. build_all.py load_avatar() does this.
+
+## Hard-won rules for scripting CLO 2026.1 (25 Nov 2026)
+Sources: the open CLO MCP projects on GitHub (Lilbonner/clo3d-mcp with its clo-patterns skill, ttiimmaacc/mcp-for-clo3d
+examples/workwear_jacket.py, Ubani-Studio/clo3d-mcp, marcoleder/clo3d-mcp) plus our own tower tests.
+- Pattern points are mm, **Y up**, drafted **as seen from outside**, clockwise. A block drawn CB-left/CF-right is the
+  body's RIGHT half: put it on the *_R arrangement points. Flipping y or guessing the side gives crumpled tubes.
+- Seam directions follow the mirror principle: pieces related by rotation sew dirs equal; by a mirror (L/R halves)
+  flip exactly one. Our job writer encodes this in the ratio order; check it on any new seam type.
+- One-piece sleeves land rotated on arrangement points: two-piece sleeves on Arm_Front_k / Arm_Back_k place reliably.
+  Body pieces: Body_*_3 points put a 64 cm body's neckline at the base of the neck (_2 puts it at the face).
+- Calls that differ from the docs: ImportAvatar(path, ApiTypes.ImportExportOption()); AssignFabricToPattern(fab,
+  pat, 1) (option 0 returns False); SetFabricPBRMaterialBaseColor(fab, face, r, g, b, a) floats 0-1;
+  SetBackgroundColorForExportRenderingImage(r, g, b, a); AddFabric returns the index; NewProject is in utility_api;
+  GetAvatarCount is in export_api; line count is nested in GetPatternInputInformation JSON.
+- ExportTurntableImages(n) (one arg) works and writes output*.png to %LOCALAPPDATA%/CLO Virtual Fashion/...; copy them.
+- No free 3D move: boots come in as an OBJ garment (ImportObjectType 2 + bTrace2DPatternsUVMap=True) whose UVs are
+  the flat patterns in mm; one traced pattern per panel, already on the last. Type 0 = avatar (rigid: forms, soles).
+- There is no undo or remove_seam via the API: save a zprj checkpoint before sewing experiments.
+- Simulate in short bursts (50 steps) and render between; leather at 15 mm particle distance is fast.
+- Never show a test render to the owner as a result; only stills that pass the rubric.
