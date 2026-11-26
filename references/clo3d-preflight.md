@@ -50,6 +50,8 @@ Prevent it instead:
 | r6: FRET jacket bodies vanished | `DeletePatternPiece` on the unsewn under-layers took the bodies with them | never create pieces in CLO only to delete them; leave cut-file-only pieces out of the job |
 | r6: AUGER sleeves torn open | the spiral zip tape had no arrangement, so it sat at the origin inside the body | every inserted piece copies its partner's arrangement (`arr_like`) |
 | Flat, matte leather (r1-r6) | CLO's default render light | `SetLightPresetForExportRenderingImage(1)` (probe on 26 Nov: 0 pink, 2 warm, 4 green spill, 5 cold) |
+| Every boot looked like the same plain sock boot (r1-r6) | straps, buckles, laces and zips existed only in the cut list, never in the CLO job | build them as thin 3D parts on the upper (plane sections of the panel meshes, lifted 1.5-2.5 mm, UVs = flat cut shape in mm), kind "trim" in parts.json (boots-jackets-v2 kit/tools/boot_hardware.py) |
+| A buckle frame (closed ring) has two UV boundary loops | a hole in a traced outline | open the ring with a 1 mm slit so it traces as one outline with square corners |
 | Internal line leaves its piece | fold lines drawn end to end across the bounding box | clip marks to the piece; pre-flight probes segment midpoints |
 
 ## Running several CLO instances at once (the tower has the GPU for 2-4)
