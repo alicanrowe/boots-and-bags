@@ -18,3 +18,22 @@ Cast or printed metal parts follow the casting floors in the sculpted-metal-cast
 
 ## Making it
 Print in castable resin and cast (silver, brass, bronze), or direct-print metal through a service. Bought hardware goes on the cutting list with a part number.
+
+## Hardware inside the leather (magnets, stiffeners, weights)
+Anything sewn or glued between two layers of leather is hidden. Render it the way it looks in real life: a soft swelling
+in the hide plus the stitched ring or box that holds it in place. Never draw it as a visible disc, puck or mesh on the surface.
+- Model it as an insert, not a part: kind (magnet, stiffener or weight), size, depth, the piece it sits in and where.
+  In a drape job that is the `inserts` list; the renderer makes a shallow dome displacement conformed to the
+  draped leather, offset by the leather thickness, plus a stitch ring 2 to 3 mm outside the insert.
+- Magnets come in mated pairs: one in each face that meets. Render a magnetic closure closed (the two faces touching)
+  unless the view is about opening it.
+- Pull tabs on a magnetic placket are short (about 25 x 12 mm) and sit flush with the hem, not hanging below it.
+- Swelling height: about 0.4 mm for a 3 mm magnet under 1.9 mm leather. If you can see a hard outline, it is wrong.
+- Don't use exposed decorative discs (wood, tsuge, metal) as a stand-in for a hidden closure.
+
+## Tools and contents shown in pockets
+A pocket, sleeve, holster or tray cradle made for a named object is shown holding that object.
+- Use the real, photo-matched CAD of the object (one named mesh and material per part), never a box or a generic stand-in.
+- Place it by the pocket mouth: the part inside the pocket is cut away at the mouth, the rest sits proud by the leather
+  thickness. Size the pocket and keeper to the object's measured section plus 2 to 3 mm of ease.
+- If the CAD isn't ready, wait for it or leave the pocket empty and say so; don't fake it.
