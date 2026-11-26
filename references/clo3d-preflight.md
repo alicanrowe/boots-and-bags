@@ -52,6 +52,9 @@ Prevent it instead:
 | Flat, matte leather (r1-r6) | CLO's default render light | `SetLightPresetForExportRenderingImage(1)` (probe on 26 Nov: 0 pink, 2 warm, 4 green spill, 5 cold) |
 | Every boot looked like the same plain sock boot (r1-r6) | straps, buckles, laces and zips existed only in the cut list, never in the CLO job | build them as thin 3D parts on the upper (plane sections of the panel meshes, lifted 1.5-2.5 mm, UVs = flat cut shape in mm), kind "trim" in parts.json (boots-jackets-v2 kit/tools/boot_hardware.py) |
 | A buckle frame (closed ring) has two UV boundary loops | a hole in a traced outline | open the ring with a 1 mm slit so it traces as one outline with square corners |
+| r7: graphics still not placed; `GetBoundingBoxOfPattern` gives only `{Width, Height}` | utility_api's `AddGraphicStyleToPattern` is `(pat, gi, x, y, w, h, face, z, angle)`; the x, y frame is unknown | try the piece-local origins in turn (centre, corner, y up/down) and log which sticks; same for buttons |
+| r7: light preset 1 turned the white mannequin beige | warm key light | preset 5 keeps the mannequin white (house rule: plain white mannequin always) |
+| r7: 3 jackets rendered fully transparent | likely two instances rendering at the same moment | if the still's PNG is under 60 KB, wait 20 s and render it again |
 | Internal line leaves its piece | fold lines drawn end to end across the bounding box | clip marks to the piece; pre-flight probes segment midpoints |
 
 ## Running several CLO instances at once (the tower has the GPU for 2-4)
