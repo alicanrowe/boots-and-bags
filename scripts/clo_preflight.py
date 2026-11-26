@@ -58,6 +58,21 @@ def check_job(path):
             if not (0 <= s["l" + side] < pats[i]["n_lines"]):
                 bad(name, pats[i]["name"], "seam line", s["l" + side], "of", pats[i]["n_lines"])
             sewn[i] += 1
+    # r5: a one-sided piece (no _L/_R) sewn by a symmetric Garment seam lands on BOTH sides' edge (TUCK's tongue
+    # was pulled two ways and stuck out; a collar tab sewn to both collar ends). Flag it unless the job says so.
+    for i, p in enumerate(pats):
+        if p.get("side"):
+            continue
+        partners = collections.defaultdict(set)
+        for s in J["seams"]:
+            for me, ot in (("a", "b"), ("b", "a")):
+                if s[me] == i:
+                    q = pats[s[ot]]
+                    if q.get("side") in ("L", "R"):
+                        partners[q["base"]].add(q["side"])
+        for base, sides in partners.items():
+            if sides == {"L", "R"} and base not in J.get("both_sides_ok", []):
+                bad(name, p["name"], "one-sided piece sewn to both", base + "_L and _R (drop one side's seam)")
     for i, p in enumerate(pats):
         P = [q[:2] for q in p["points"]]
         if len(P) < 3:

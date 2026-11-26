@@ -22,7 +22,7 @@ Prevent it instead:
 - The build script logs a line before every slow call. A log that stops growing while CPU stays flat means a
   dialog is up. The tower watchdog checks for this (render-farm skill).
 
-## Failure classes from rounds 1-3 (25 Nov 2026) and the rule for each
+## Failure classes from rounds 1-5 (25-26 Nov 2026) and the rule for each
 | Seen | Cause | Rule / check |
 |---|---|---|
 | Pieces vanish; `AssignFabricToPattern(x, None, ..)` errors | single-point closed outlines (one-edge pieces) | export closed outlines with corners plus spline points; pre-flight: >= 3 points |
@@ -38,6 +38,13 @@ Prevent it instead:
 | Cut-and-sew cells (`CutPatternAlongInternalShapes`) return False in 2026.1, and the job then hangs (r4) | the API cut does not work here | show pierced or inlaid cells as a transparent PNG graphic (`ImportAsGraphic` + `AddGraphicStyleToPattern`) drawn from the cut-file cells |
 | Std views and viewport turntables tint some panels lime/olive (r4) | viewport display, not the render | judge and show only render-engine images (`ExportRenderingImage`; turntable via `RenderImageVideoOptions.m_ImageVideo`) |
 | `ExportStdViewImage` "Please provide filepath with extension" | it needs a full file name, not a folder | pass `views/viewN.png` |
+| Main still 480x640 while turntables were 1600x2000 (r5) | `ExportRenderingImage` ran before `SetRenderImageVideoProperties` set the size | set render props first, then export the still (`_hi.png`); `SetQualityRender(True)` |
+| Jackets draped half-settled, puffy (r5) | 500 + 300 sim steps (5 s) | 1500 + 800 steps; jackets still take only 2-4 min |
+| Fret graphic never applied (r5): `GRAPHIC import None` | `ImportAsGraphic` was on none of pattern/utility/fabric/import_api; `GetGraphicStyleCount` returned 0, which an `or` chain skipped; `AddGraphicStyleToPattern` here takes `(pat, gi, [x, y], centre, face, z, angle)` | search every loaded `*_api` module (`api_modules()`, logged as `DISCOVER`), treat 0 as a number, use `AddGraphicStyleToPatternV2(pat, gi, x, y, w, h, face, z, angle)` or the list form + `SetGraphicStyleDimensionsOnPattern` |
+| Whole sole mottled when one shell was lost (r5, 02/06/10) | core kept visible whenever any shell failed: it z-fights every shell | always hide the core; a lost shell is a `PART LOST` that fails the round anyway. Lost `__R` bottoms: ship the `__L` mesh mirrored in z with faces reversed and L's UVs (`alt4`) |
+| TUCK tongue stuck out sideways (r1-r5) | a one-sided piece sewn by a symmetric seam is sewn to BOTH fronts | pre-flight flags one-sided pieces sewn to both `_L` and `_R`; the job post-process (kit/make_r6.py) drops one side and adds the cross-body seam |
+| Zip closures invisible (r1-r5) | an edge-to-edge CF seam renders as a line; the 2026.1 API has no zipper creation call | sew a 9 mm metal-coloured tape strip into every zip seam (`insert_tape`), particle distance 5 mm on tapes only |
+| Every jacket looked the same (r1-r5) | one 40 mm stand collar on every design | collar per design: snap tab (`tab=`), funnel (`flare=`), none; snaps via `AddButtonToPattern`; `SetPatternStrengthen` on collars, tabs, tapes |
 | Internal line leaves its piece | fold lines drawn end to end across the bounding box | clip marks to the piece; pre-flight probes segment midpoints |
 
 ## Running several CLO instances at once (the tower has the GPU for 2-4)
