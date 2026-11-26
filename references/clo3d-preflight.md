@@ -45,6 +45,11 @@ Prevent it instead:
 | TUCK tongue stuck out sideways (r1-r5) | a one-sided piece sewn by a symmetric seam is sewn to BOTH fronts | pre-flight flags one-sided pieces sewn to both `_L` and `_R`; the job post-process (kit/make_r6.py) drops one side and adds the cross-body seam |
 | Zip closures invisible (r1-r5) | an edge-to-edge CF seam renders as a line; the 2026.1 API has no zipper creation call | sew a 9 mm metal-coloured tape strip into every zip seam (`insert_tape`), particle distance 5 mm on tapes only |
 | Every jacket looked the same (r1-r5) | one 40 mm stand collar on every design | collar per design: snap tab (`tab=`), funnel (`flare=`), none; snaps via `AddButtonToPattern`; `SetPatternStrengthen` on collars, tabs, tapes |
+| Site gate fails the stills (26 Nov): grey vignette background, ground plane ending in a hard rectangle | CLO's render studio backdrop | render with `m_bTransparency=True` and composite on #FFFFFF (`kit/tools/on_white.py`); the page must then pass `tools/gate.py` in the site repo |
+| r6: graphics "No overlap", `AddButtonToPattern` False | CLO's 2D frame is not the frame the points were created in | place graphics by the frame-free list form `AddGraphicStyleToPattern(pat, gi, [0.5, 0.5], True, 0, 0, 0)` + `SetGraphicStyleDimensionsOnPattern`; map button points through `GetBoundingBoxOfPattern`. Styles: `utility_api.AddGraphicStyleFromImageFile` (utility_api also holds zipper, button and light-preset calls) |
+| r6: FRET jacket bodies vanished | `DeletePatternPiece` on the unsewn under-layers took the bodies with them | never create pieces in CLO only to delete them; leave cut-file-only pieces out of the job |
+| r6: AUGER sleeves torn open | the spiral zip tape had no arrangement, so it sat at the origin inside the body | every inserted piece copies its partner's arrangement (`arr_like`) |
+| Flat, matte leather (r1-r6) | CLO's default render light | `SetLightPresetForExportRenderingImage(1)` (probe on 26 Nov: 0 pink, 2 warm, 4 green spill, 5 cold) |
 | Internal line leaves its piece | fold lines drawn end to end across the bounding box | clip marks to the piece; pre-flight probes segment midpoints |
 
 ## Running several CLO instances at once (the tower has the GPU for 2-4)
