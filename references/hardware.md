@@ -34,6 +34,22 @@ in the hide plus the stitched ring or box that holds it in place. Never draw it 
 ## Tools and contents shown in pockets
 A pocket, sleeve, holster or tray cradle made for a named object is shown holding that object.
 - Use the real, photo-matched CAD of the object (one named mesh and material per part), never a box or a generic stand-in.
-- Place it by the pocket mouth: the part inside the pocket is cut away at the mouth, the rest sits proud by the leather
-  thickness. Size the pocket and keeper to the object's measured section plus 2 to 3 mm of ease.
+- The object sits IN the pocket, not through it. Model it whole as a rigid part: it rests on the leather under it, and the
+  pocket, sleeve or strip lifts over it with a smooth give. Don't cut it off at the mouth and don't let the hide pass
+  through it. Size the pocket and keeper to the object's measured section plus 2 to 3 mm of ease.
+- What lies over and what lies under is decided per piece. A welt or pad that a tool's head rests on lies UNDER the head.
+  It is not over the blade. A tool goes no deeper than its pocket or strip (about 4 mm short of the stitched end), and
+  the rest stands proud of the mouth. Tips out through the bottom of a pocket are clipping.
+- Place each object from its exact pattern point, not the nearest mesh vertex. Pencils 8 mm apart snapped to vertices
+  stack on each other.
+
+## Clipping gate (hard, every render)
+A frame with any penetration doesn't ship. Before a render, check mesh against mesh at 0.5 mm:
+- cloth or leather inside a tool or hardware part
+- a tool or part inside the hide slab (through a face, not just beside a cut edge)
+- a tool inside another tool (pencils in one strip, saws stacked on one wall, a plane against wall-hung chisels)
+- for cases and trays, every tool against every wall, base, cradle, sleeve, sheath and flap, in every pose (closed,
+  half open, flat)
+A failed check stops the render. Fix the cause, never the threshold. After it passes, still zoom in on the closest
+views by eye. A sheath is two layers either side of a saw plate, never a slab through it.
 - If the CAD isn't ready, wait for it or leave the pocket empty and say so; don't fake it.

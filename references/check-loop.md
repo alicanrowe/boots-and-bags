@@ -3,7 +3,7 @@
 Render, compare against the named references, list what's off, fix, repeat until it holds up. Show the client only results that passed.
 
 ## Checks before every render (any fail stops the render)
-1. **Clipping.** No part passes into another: hardware through leather, leather through the last or form, laces through eyelet walls, straps through buckles, lining through the upper.
+1. **Clipping.** No part passes into another: hardware through leather, leather through the last or form, laces through eyelet walls, straps through buckles, lining through the upper, tools through the pockets that hold them. This is a measured gate at 0.5 mm, not an eyeball check (hardware.md "Clipping gate").
 2. **Stack.** At every hardware point, the post or setting fits the modelled leather stack.
 3. **Stretch.** Every flattened panel is under 3 percent stretch.
 4. **Seams.** Each pair of joined edges matches in length to 1 mm.
